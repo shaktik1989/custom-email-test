@@ -1,8 +1,11 @@
+<% if flash[:notice].present? %>
+  <h1><%= flash[:notice] %></h1>
+<% end %>
 <%= form_tag send_custom_email_path do %>
   <table>
     <tr>
       <td>
-        <%= label_tag :email_server %>  
+        <%= label_tag :email_server %>*  
       </td>
       <td>
         <%= text_field_tag :email_server, nil %>  
@@ -11,7 +14,7 @@
 
     <tr>
       <td>
-        <%= label_tag :user_name %>  
+        <%= label_tag :user_name %>*  
       </td>
       <td>
         <%= text_field_tag :user_name, nil %>  
@@ -20,7 +23,7 @@
 
     <tr>
       <td>
-        <%= label_tag :user_password %>  
+        <%= label_tag :user_password %>*  
       </td>
       <td>
         <%= password_field_tag :password, nil %>  
@@ -29,7 +32,7 @@
 
     <tr>
       <td>
-        <%= label_tag :template %>  
+        <%= label_tag :template %>* 
       </td>
       <td>
         <%= select_tag :template, options_from_collection_for_select(@email_templates, "id", "name") %> 
@@ -37,7 +40,7 @@
     </tr>
     <tr>
       <td>
-        <%= label_tag :email %>  
+        <%= label_tag :email %>*  
       </td>
       <td>
         <%= email_field_tag :email, nil %>
